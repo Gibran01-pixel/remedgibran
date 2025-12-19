@@ -10,8 +10,10 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+
 
 class PemesananResource extends Resource
 {
@@ -69,6 +71,15 @@ class PemesananResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+
+                Action::make('lihatDetail')
+                    ->label('Lihat Detail')
+                    ->icon('heroicon-o-eye')
+                    ->color('info')
+                    ->url(fn ($record) => route(
+                        'filament.admin.resources.pemesanans.view',
+                        $record
+                    )),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
