@@ -14,7 +14,6 @@ use Filament\Tables\Actions\Action;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-
 class PemesananResource extends Resource
 {
     protected static ?string $model = Pemesanan::class;
@@ -100,6 +99,7 @@ class PemesananResource extends Resource
         return [
             'index' => Pages\ListPemesanans::route('/'),
             'create' => Pages\CreatePemesanan::route('/create'),
+            'view' => Pages\ViewPemesanan::route('/{record}'),
             'edit' => Pages\EditPemesanan::route('/{record}/edit'),
         ];
     }
